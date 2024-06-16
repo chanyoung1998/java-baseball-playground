@@ -37,7 +37,7 @@ public class Formula {
     }
 
     private static void isValidFormula(String input) {
-        String regExp = "^\\d+(\\s+[+\\-*/]\\s+\\d+)*$";
+        String regExp = "^\\d+(\\s[+\\-*/]\\s\\d+)*$";
         if (!Pattern.matches(regExp, input)) {
             throw new IllegalStateException("invalid input");
         }

@@ -23,7 +23,7 @@ public class CalculatorTest3 {
         System.setIn(new ByteArrayInputStream(actual.getBytes()));
     }
     @ParameterizedTest
-    @CsvSource({"2 + 3 * 4 / 2, 10","1 + 3 * 5, 20"})
+    @CsvSource({"2 + 3 * 4 / 2, 10","1 + 3 * 5, 20","12 + 3 - 5 * 2, 20","12 - 2 + 100 / 10,11"})
     void setFolmula(String folmula,int expected) {
         calculator.setFormula(folmula);
         double actual = calculator.calculate();
@@ -31,18 +31,9 @@ public class CalculatorTest3 {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"1 * 3 @ 2"})
+    @ValueSource(strings = {"1 * 3 @ 2","1 * + - 2","1 + 2  - 3"})
     void checkOperations(String folmula) {
 
-        assertThatThrownBy(() -> calculator.setFormula(folmula))
-                .isInstanceOf(IllegalStateException.class)
-                .hasMessageContaining("invalid input");
-    }
-
-
-    @ParameterizedTest
-    @ValueSource(strings = {"1 * + - 2"})
-    void checkOperands(String folmula) {
         assertThatThrownBy(() -> calculator.setFormula(folmula))
                 .isInstanceOf(IllegalStateException.class)
                 .hasMessageContaining("invalid input");
