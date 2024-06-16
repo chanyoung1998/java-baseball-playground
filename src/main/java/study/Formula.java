@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 public class Formula {
     private static final String REG = "^\\d+(\\s[+\\-*/]\\s\\d+)*$";
     private static final Pattern PATTERN = Pattern.compile(REG);
+    private static final String FORMULA_SPLITTER = " ";
     private String formula;
     private String[] operations;
     private int[] operands;
@@ -51,7 +52,7 @@ public class Formula {
 
     private void setOperands(String input) {
 
-        String[] temp = input.split(" ");
+        String[] temp = input.split(FORMULA_SPLITTER);
         int[] operands = new int[(int) (Math.ceil(temp.length) / 2 + 1)];
 
         for (int i = 0; i < temp.length; i = i + 2) {
@@ -64,7 +65,7 @@ public class Formula {
     }
 
     private void setOperations(String input) {
-        String[] temp = input.split(" ");
+        String[] temp = input.split(FORMULA_SPLITTER);
         String[] operations = new String[(int) Math.ceil(temp.length / 2)];
 
         for (int i = 1; i < temp.length; i = i + 2) {

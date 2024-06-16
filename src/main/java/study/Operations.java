@@ -1,6 +1,5 @@
 package study;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
@@ -15,21 +14,21 @@ public enum Operations {
     MULTIPLY("*", (first, second) -> first * second),
     DIVIDE("/", (first, second) -> first / second);
 
+    private static final Map<String, Operations> OPERATIONS_MAP =
+            Collections.unmodifiableMap(Stream.of(values())
+                    .collect(Collectors.toMap(op->op.symbol, op -> op)));
     private String symbol;
     private BiFunction<Integer, Integer, Integer> operation;
+
 
     Operations(String symbol, BiFunction<Integer, Integer, Integer> operation) {
         this.symbol = symbol;
         this.operation = operation;
     }
 
-    private static final Map<String, Operations> operationsMap =
-            Collections.unmodifiableMap(Stream.of(values())
-                    .collect(Collectors.toMap(op->op.symbol, op -> op)));
-
     public static Operations getSymbol(String symbol) {
 
-        Operations op = operationsMap.get(symbol);
+        Operations op = OPERATIONS_MAP.get(symbol);
         if (Objects.isNull(op)) {
             throw new IllegalStateException("invalid symbol");
         }
