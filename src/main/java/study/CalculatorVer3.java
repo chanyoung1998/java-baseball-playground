@@ -5,7 +5,10 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 public class CalculatorVer3 {
-    Formula formula = new Formula();
+    Formula formula;
+    public CalculatorVer3() {
+        this.formula = new Formula();
+    }
 
     public void setFormula(String input) {
         formula.writeFormula(input);
