@@ -5,6 +5,8 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Formula {
+    private static final String REG = "^\\d+(\\s[+\\-*/]\\s\\d+)*$";
+    private static final Pattern PATTERN = Pattern.compile(REG);
     private String formula;
     private String[] operations;
     private int[] operands;
@@ -37,8 +39,8 @@ public class Formula {
     }
 
     private static void isValidFormula(String input) {
-        String regExp = "^\\d+(\\s[+\\-*/]\\s\\d+)*$";
-        if (!Pattern.matches(regExp, input)) {
+
+        if (!PATTERN.matcher(input).matches()) {
             throw new IllegalStateException("invalid input");
         }
     }
