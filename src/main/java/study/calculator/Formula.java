@@ -1,4 +1,4 @@
-package study;
+package study.calculator;
 
 import java.io.InputStream;
 import java.util.Scanner;

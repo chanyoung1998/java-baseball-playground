@@ -1,4 +1,4 @@
-package study;
+package study.calculator;
 
 import java.util.Collections;
 import java.util.Map;
