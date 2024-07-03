@@ -24,3 +24,11 @@ git checkout main // 기본 브랜치가 main인 경우
 git checkout -b 브랜치이름
 ex) git checkout -b apply-feedback
 ```
+
+# 기능 목록
+- 숫자 입력
+  - validation
+- 결과 도출
+  - 숫자 비교
+    - 스트라이크 여부
+    - 볼 여부
