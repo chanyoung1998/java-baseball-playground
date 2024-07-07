@@ -32,3 +32,19 @@ ex) git checkout -b apply-feedback
   - 숫자 비교
     - 스트라이크 여부
     - 볼 여부
+
+# 기능 목록 VER2
+- 숫자 1-9사이 숫자
+- Strike
+  - 위치, 숫자 일치
+- Ball
+  - 숫자만 일치
+- Nothing
+
+
+ex) com ) 1 2 3 
+    inp ) 1 3 5
+-> 1 strike, 1 ball
+(1,1) (1,1) -> strike
+(1,1) (1,2) -> ball
+(1,1) (2,1) -> nothing
